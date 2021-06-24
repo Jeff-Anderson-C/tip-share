@@ -1,0 +1,19 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+h1 {
+    align-content: center;
+}
+body {
+    background-color: beige;
+}
+#wrapper {
+    margin: auto;
+    padding-left: 10px;
+    background-color: beige;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 30px;
+    padding-right: 30px;
+}
