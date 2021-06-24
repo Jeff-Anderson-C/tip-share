@@ -1,0 +1,7 @@
+Chris: Internal structure (urls.py/views.py)
+
+Top: Front end visual: (style/templates)
+
+Cliff: Back end database (form.py/model.py/views.py)
+
+Jeff: boss mode!  bugs and support (helps in all areas to overcome any roadblocks)
