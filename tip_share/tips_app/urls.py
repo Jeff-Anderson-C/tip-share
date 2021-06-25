@@ -8,10 +8,10 @@ urlpatterns = [
     
     # #dashboard - 4 paths (Pool, Group Chat, User Profile, User $ history)
     path('dashboard', views.dashboard), #localhost:8000/dashboard
-    # path('logout', views.logout),#C2A
+    path('logout', views.logout),#C2A
     
     # ## POOL
-    # path('pool/start', views.pool_new), #localhost:8000/pool/start
+    path('pool/start', views.pool_new), #localhost:8000/pool/start
     # path('pool/create', views.pool_create), #C2A
     # path('pool/<int:pool_id>/summary', views.pool), #localhost:8000/pool/3/summary
 
@@ -27,12 +27,13 @@ urlpatterns = [
 
     
     # ## USER PROFILE
-    # path('user/summary', views.user), #localhost:8000/user/summary
+    path('user/summary', views.user), #localhost:8000/user/summary
     # path('user/edit',views.user_edit), #localhost:8000/user/edit
     # path('user/update', views.user_update), #C2A
     
     # ## USER $$ HISTORY 
-    # path('transactions/history', views.transactions), #localhost:8000/transaction/history
+    path('transactions/history', views.transactions), #localhost:8000/transaction/history
 
-    
+    #develop tool "restart", erase all database objects (for development only)
+    path("restart", views.restart)
 ]

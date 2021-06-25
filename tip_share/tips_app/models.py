@@ -43,13 +43,14 @@ class User(models.Model):
     email = models.CharField(max_length=255)
     password = models.CharField(max_length=255)
     restaurant = models.CharField(max_length=255)
-    hours_worked = models.CharField(max_length=255)
-    tips = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    # related fields
-    # pool_group = models.ManyToManyField
-    # groups = models.ManyToManyField
+    # --related fields--
+    # (Hours) related name = hours_worked 
+    # (Pool) related name = pool_groups
+    # (Tips) related name = tips
+    # (Transaction) related name = transactions_sent
+    # (Transaction) related name = transactions_recieved
     # objects
     objects = UserManager()
 
@@ -58,14 +59,38 @@ class User(models.Model):
         # attr_class = ImageFieldFile
         # descriptor_class = ImageFileDescriptor
         # description = _("Image")
+
+class Hours(models.Model):
+    hours_worked = models.IntegerField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    # --related fields--
+    user = models.ForeignKey(User, related_name="hours_worked", on_delete=CASCADE)
+
     
+class Pool(models.Model):
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    # --related fields--
+    users = models.ManyToManyField(User, related_name="pool_groups")
+    
+class Tips(models.Model):
+    # total tips from the day
+    days_tips = models.IntegerField()
+    # User's share of days_tips
+    share_of_tips = models.IntegerField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    # --related fields--
+    user = models.ForeignKey(User, related_name="tips", on_delete=CASCADE)
+
 class Transaction(models.Model):
     amount = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    # related fields
-    # user who is sending processing the transaction (one-to-one)
-    sender = models.CharField(max_length=255)
+    # --related fields--
+    # user who is sending/processing the transaction (one-to-many)
+    sender = models.ForeignKey(User, related_name="transactions_sent", on_delete=CASCADE)
+    # related name senders
     # users who will recieve the transaction (one-to-many)
-    recipients = models.ForeignKey(User, related_name="recipients", on_delete=CASCADE)
-    # I gotta play around with this, I feel like I'm missing something with the relationships.
+    recipients = models.ManyToManyField(User, related_name="transactions_recieved")
