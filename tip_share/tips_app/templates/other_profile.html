@@ -30,6 +30,7 @@
 
         <div>
             <form class='add' action="" method="POST">
+                {% csrf_token %}
                 <h3>Add to a Pool:</h3>
                 <label for="first_name">First Name</label>
                 <input name="first_name" type="text">
@@ -41,6 +42,7 @@
             </form>
             <hr>
             <form class='buy' action="" method="POST">
+                {% csrf_token %}
                 <h3>What would you like to send?</h3>
                 <label for="first_name">First Name</label>
                 <input name="first_name" type="text">
