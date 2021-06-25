@@ -53,14 +53,19 @@ def login(request):
         return redirect('/')
 #     return redirect('/dashboard')
 
-# def logout(request):
-#     request.session.clear()
-#     return redirect('/')
+def logout(request):
+    request.session.clear()
+    return redirect('/')
 
 
 # ## Dashboard 
 def dashboard(request):
-    return render(request, 'dashboard.html')
+    user = User.objects.get(id=request.session['userid'])
+    context = {
+        "user": user,
+        "name": user.first_name,
+    }
+    return render(request, 'dashboard.html', context)
 #     return HttpResponse ("This is the User Dashboard page displaying pathways to Start Pool, Open Group Chat, View Profile, and View $ History")
 
 
