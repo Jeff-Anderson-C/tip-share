@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <title>Start New Pool</title>
+</head>
+<body>
+    <!-- context test -->
+    Hello, {{user.first_name}}
+    <!-- create pool concepts test form -->
+    <form action="create", method="POST">
+        {% csrf_token %}
+    <div>
+        others in pool---------------------------hours
+    </div>
+    <div>
+        username:<input type="text", name="username1">hours:<input type="number", name="hours_worked1">
+    </div>
+    <div>
+        username:<input type="text", name="username2">hours:<input type="number", name="hours_worked2">
+    </div>
+    <div>
+        username:<input type="text", name="username3">hours:<input type="number", name="hours_worked3">
+    </div>
+    <div>
+        username:<input type="text", name="username4">hours:<input type="number", name="hours_worked4">
+    </div>
+    <div>
+        total_tips
+    </div>
+    <div>
+        <input type="number", name="total_tips">
+    </div>
+    <submit><button>submit</button></submit>
+    </form>
+
+</body>
+</html>

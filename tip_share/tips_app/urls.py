@@ -12,7 +12,7 @@ urlpatterns = [
     
     # ## POOL
     path('pool/start', views.pool_new), #localhost:8000/pool/start
-    # path('pool/create', views.pool_create), #C2A
+    path('pool/create', views.pool_create), #C2A
     # path('pool/<int:pool_id>/summary', views.pool), #localhost:8000/pool/3/summary
 
     # #Optional paths not on wireframe:
@@ -35,5 +35,8 @@ urlpatterns = [
     path('transactions/history', views.transactions), #localhost:8000/transaction/history
 
     #develop tool "restart", erase all database objects (for development only)
-    path("restart", views.restart)
+    path("restart", views.restart),
+    #develop tool "quickstart", create group members' database objects (for development only)
+    path("quickstart", views.quickstart),
+    
 ]

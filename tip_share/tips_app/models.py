@@ -46,8 +46,9 @@ class User(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     # --related fields--
-    # (Hours) related name = hours_worked 
+    # (Hours) related name = shift_length 
     # (Pool) related name = pool_groups
+    # (Pool) related name = pool_creator
     # (Tips) related name = tips
     # (Transaction) related name = transactions_sent
     # (Transaction) related name = transactions_recieved
@@ -65,27 +66,28 @@ class Hours(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     # --related fields--
-    user = models.ForeignKey(User, related_name="hours_worked", on_delete=CASCADE)
+    user = models.ForeignKey(User, related_name="shift_length", on_delete=CASCADE)
 
     
 class Pool(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     # --related fields--
-    users = models.ManyToManyField(User, related_name="pool_groups")
+    pool_creator = models.ForeignKey(User, related_name="created_pools", on_delete=CASCADE)
+    pool_users = models.ManyToManyField(User, related_name="pool_groups")
     
 class Tips(models.Model):
     # total tips from the day
     days_tips = models.IntegerField()
     # User's share of days_tips
-    share_of_tips = models.IntegerField()
+    # share_of_tips = models.IntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     # --related fields--
-    user = models.ForeignKey(User, related_name="tips", on_delete=CASCADE)
+    # user = models.ForeignKey(User, related_name="tips", on_delete=CASCADE)
 
 class Transaction(models.Model):
-    amount = models.CharField(max_length=255)
+    amount = models.IntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     # --related fields--
