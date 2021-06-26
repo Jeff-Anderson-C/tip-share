@@ -15,13 +15,13 @@
         <div id="nav">
             <nav>
                 <ul class="nav_links">
-                    <li><a href="#">Dashboard</a></li>
-                    <li><a href="#">Start a Pool</a></li>
+                    <li><a href="/dashboard">Dashboard</a></li>
+                    <li><a href="/pool/start">Start a Pool</a></li>
                     <li><a href="#">Pool Summary</a></li>
-                    <li><a href="#">History</a></li>
+                    <li><a href="/transactions/history">History</a></li>
                 </ul>
             </nav>
-            <a class="logout" href="#"><button>Logout</button></a>
+            <a class="logout" href="/logout"><button>Logout</button></a>
         </div>
 
         <div id="container">
@@ -29,16 +29,16 @@
             <h1>Hello, {{user.first_name}}</h1>
             <div id="dash_one">
                 <!-- logout test link -->
-                <button><a href="user/summary">Profile</a></button>
+                <button><a href="/user/summary">Profile</a></button>
                 <!-- start pool test link -->
-                <button><a href="pool/start">Start Pool</a></button>
+                <button><a href="/pool/start">Start Pool</a></button>
             </div>
             <hr>
             <div id="dash_two">
                 <!-- profile test link -->
-                <button><a href="user/summary">Pool Summary</a></button>
+                <button><a href="/user/summary">Pool Summary</a></button>
                 <!-- $ history test link -->
-                <button><a href="transactions/history">Tip History</a></button>
+                <button><a href="/transactions/history">Tip History</a></button>
             </div>
         </div>
     </div>
