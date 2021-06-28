@@ -82,7 +82,7 @@ def pool_new(request):
     context = {
         "user": user,
     }
-    return render(request, "pool_new.html", context)
+    return render(request, "pool.html", context)
     # return HttpResponse ("User is looking to start a pool")
 
 # brute force pool_create, will need to refactor
@@ -207,9 +207,10 @@ def user(request):
 # ## USER $$ HISTORY
 def transactions(request):
     # user must be logged in
+    user = User.objects.get(id=request.session['userid'])
     if "userid" not in request.session:
         return redirect('/')
-    return HttpResponse ("This is the Transaction History Page")
+    return render (request, "history.html", {'user':user})
 
 # DEVELOPMENT TOOLS
 # restart database, erase all objects (for development only)
