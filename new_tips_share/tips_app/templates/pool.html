@@ -10,13 +10,14 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
-<body>
+<body class="container">
     <div id="wrapper">
         <div id="nav">
             <nav>
                 <ul class="nav_links">
                     <li><a href="/dashboard">Dashboard</a></li>
                     <li><a href="/pool/start">Start a Pool</a></li>
+                    <li><a href="/search/all_users">Find User</a></li>
                     <li><a href="/transactions/history">History</a></li>
                 </ul>
             </nav>
@@ -62,7 +63,7 @@
                         
                         {% csrf_token %}
                         <h3>Total Tips </h3>$<input type="number", name="total_tips">
-                        <h3>Total Hours </h3> <input type="number", name="total_hours">
+                        <h3> Total Hours </h3> <input type="number", name="total_hours">
                     </div>
                 <hr>
                     <submit><button>Distribute!</button></submit>

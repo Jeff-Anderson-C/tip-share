@@ -52,6 +52,7 @@ button:hover {
     justify-content: space-evenly;
     padding-top: 20px;
     padding-bottom: 40px;
+    padding-right: 10px;
 }
 #dash_one a {
     text-decoration: none;

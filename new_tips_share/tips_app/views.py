@@ -29,6 +29,7 @@ def register(request):
             last_name = request.POST ['last_name'],
             email = request.POST ['email'],
             username = request.POST ['username'],
+            restaurant = request.POST ['restaurant'],
             password = pw_hash,
         )
         request.session['userid'] = new_user.id 
