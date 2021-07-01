@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name= "viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tip History</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/summary.css' %}">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    <div id="container">
+        <div id="nav">
+            <nav>{{user.first_name}}
+                <ul class="nav_links">
+                    <li><a href="/dashboard">Dashboard</a></li>
+                    <li><a href="/pool/start">Start a Pool</a></li>
+                    <li><a href="/transactions/history">History</a></li>
+                </ul>
+            </nav>
+            <a class="logout" href="/logout"><button>Logout</button></a>
+        </div>
+        
+        <div id="tips">
+            <div class="info">
+                <h1>Tip Pool History: </h1>
+                <hr>
+                <!-- Enter the for loop jinja here for table data -->
+                <table class="table table-dark">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Sender</th>
+                            <th>Tip Amount</th>
+                        </tr>
+                    </thead>
+                    <!-- Added dummy data for visual -->
+                    <tbody>
+                        {% for trans in user_trans %}
+                        <tr>
+                            <td>{{trans.created_at}}</td>
+                            <td>{{trans.sender.first_name}}</td>
+                            <td>${{trans.tips_shared}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody> 
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

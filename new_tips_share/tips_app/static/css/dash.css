@@ -1,0 +1,89 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+#container {
+    background-color: beige;
+}
+h1 {
+    padding-left: 30px;
+    padding-top: 20px;
+}
+#nav {
+    background-color: darkgray;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+}
+li {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.nav_links {
+    list-style: none;
+}
+.nav_links a {
+    text-decoration: none;
+    color: black;
+}
+.nav_links li {
+    display: inline-block;
+    padding: 0px 20px;
+}
+.nav_links li a {
+    transition: all 0.5s ease 0s;
+}
+.nav_links li a:hover {
+    color: beige;
+}
+button {
+    padding: 5px 20px;
+    background-color: darkgray;
+    border-radius: 20px;
+    cursor: pointer;
+    color: black;
+}
+button:hover {
+    transition: all 0.5s ease 0s;
+    color: beige;
+}
+#dash_one {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+#dash_one a {
+    text-decoration: none;
+    color: black;
+}
+#dash_one button {
+    border-radius: 20px;
+    background-color: darkgray;
+    font-size: 80px;
+    transition: all 0.5s ease 0s;
+}
+#dash_one a:hover {
+    transition: all 0.5s ease 0s;
+    color: beige;
+}
+#dash_two {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 40px;
+    padding-right: 110px;
+}
+#dash_two a {
+    text-decoration: none;
+    color: black;
+}
+#dash_two button {
+    border-radius: 20px;
+    background-color: darkgray;
+    font-size: 80px;
+    transition: all 0.5s ease 0s;
+}
+#dash_two a:hover {
+    transition: all 0.5s ease 0s;
+    color: beige;
+}
