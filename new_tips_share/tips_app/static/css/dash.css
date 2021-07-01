@@ -71,7 +71,7 @@ button:hover {
     display: flex;
     justify-content: space-evenly;
     padding-top: 40px;
-    padding-right: 110px;
+    padding-bottom: 40px;
 }
 #dash_two a {
     text-decoration: none;

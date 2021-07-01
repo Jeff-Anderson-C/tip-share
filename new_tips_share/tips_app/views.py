@@ -217,8 +217,9 @@ def user(request):
     # user must be logged in
     if "userid" not in request.session:
         return redirect('/')
-    user = User.objects.get(id=request.session['userid'])    
-    return render(request, "profile.html", {'user':user})
+    user = User.objects.get(id=request.session['userid']) 
+    user_trans = user.transactions_recieved.all()   
+    return render(request, "profile.html", {'user':user, 'user_trans':user_trans})
     # return HttpResponse ("User Profile Page") 
 
 def other_profile(request, user_id):

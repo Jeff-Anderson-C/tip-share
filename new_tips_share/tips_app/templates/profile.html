@@ -47,26 +47,20 @@
                 <table class="table table-dark">
                     <thead>
                         <tr>
-                            <th>Amount</th>
                             <th>Date</th>
                             <th>Sender</th>
+                            <th>Tip Amount</th>
                         </tr>
                     </thead>
+                    <!-- Added dummy data for visual -->
                     <tbody>
+                        {% for trans in user_trans %}
                         <tr>
-                            <td>$20.00</td>
-                            <td>6/24/2021</td>
-                            <td>Cliff</td>
+                            <td>{{trans.created_at}}</td>
+                            <td>{{trans.sender.first_name}}</td>
+                            <td>${{trans.tips_shared}}</td>
                         </tr>
-                        <tr>
-                            <td>$35.00</td>
-                            <td>6/21/2021</td>
-                            <td>Top</td>
-                        </tr>
-                        <tr>
-                            <td>$60.00</td>
-                            <td>6/25/2021</td>
-                            <td>Chris</td>
+                        {% endfor %}
                         </tr>
                     </tbody>
                 </table>
